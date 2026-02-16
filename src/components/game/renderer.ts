@@ -33,25 +33,56 @@ function drawPlayer(ctx: CanvasRenderingContext2D, p: Player) {
   if (p.invincible > 0 && Math.floor(p.invincible * 10) % 2 === 0) return;
   
   const cx = p.x + p.width / 2;
-  const cy = p.y + p.height / 2;
-  
-  // Ship body - angular fighter shape
-  ctx.fillStyle = '#00ff88';
+  const s = 1.3; // scale factor for bigger ship
+
+  // --- Pixel art style ship matching reference ---
+  // Main fuselage (dark green center)
+  pixelRect(ctx, cx - 3 * s, p.y + 2 * s, 6 * s, 20 * s, '#1a5c2a');
+  // Fuselage highlight
+  pixelRect(ctx, cx - 2 * s, p.y + 3 * s, 4 * s, 16 * s, '#22aa44');
+
+  // Nose (bright green tip)
+  pixelRect(ctx, cx - 2 * s, p.y, 4 * s, 4 * s, '#00ff66');
+  pixelRect(ctx, cx - 1 * s, p.y - 2 * s, 2 * s, 3 * s, '#88ffaa');
+
+  // Cockpit (cyan/teal window)
+  pixelRect(ctx, cx - 2 * s, p.y + 6 * s, 4 * s, 5 * s, '#115533');
+  pixelRect(ctx, cx - 1 * s, p.y + 7 * s, 2 * s, 3 * s, '#00ccaa');
+
+  // Left wing (angular, green with purple edge)
+  ctx.fillStyle = '#33cc55';
   ctx.beginPath();
-  ctx.moveTo(cx, p.y);
-  ctx.lineTo(p.x + p.width, p.y + p.height);
-  ctx.lineTo(cx, p.y + p.height - 8);
-  ctx.lineTo(p.x, p.y + p.height);
+  ctx.moveTo(cx - 3 * s, p.y + 10 * s);
+  ctx.lineTo(cx - 14 * s, p.y + 22 * s);
+  ctx.lineTo(cx - 12 * s, p.y + 24 * s);
+  ctx.lineTo(cx - 3 * s, p.y + 18 * s);
   ctx.closePath();
   ctx.fill();
+  // Wing detail
+  pixelRect(ctx, cx - 12 * s, p.y + 21 * s, 4 * s, 2 * s, '#7744aa');
+  pixelRect(ctx, cx - 10 * s, p.y + 19 * s, 3 * s, 2 * s, '#55dd77');
 
-  // Cockpit
-  pixelRect(ctx, cx - 3, p.y + 10, 6, 8, '#00ffcc');
-  
-  // Engine glow
-  const glowSize = 4 + Math.random() * 4;
-  pixelRect(ctx, cx - 4, p.y + p.height - 2, 8, glowSize, '#88ff00');
-  pixelRect(ctx, cx - 2, p.y + p.height, 4, glowSize + 2, '#ffff00');
+  // Right wing (mirror)
+  ctx.fillStyle = '#33cc55';
+  ctx.beginPath();
+  ctx.moveTo(cx + 3 * s, p.y + 10 * s);
+  ctx.lineTo(cx + 14 * s, p.y + 22 * s);
+  ctx.lineTo(cx + 12 * s, p.y + 24 * s);
+  ctx.lineTo(cx + 3 * s, p.y + 18 * s);
+  ctx.closePath();
+  ctx.fill();
+  pixelRect(ctx, cx + 8 * s, p.y + 21 * s, 4 * s, 2 * s, '#7744aa');
+  pixelRect(ctx, cx + 7 * s, p.y + 19 * s, 3 * s, 2 * s, '#55dd77');
+
+  // Wing tips (purple accent)
+  pixelRect(ctx, cx - 15 * s, p.y + 22 * s, 3 * s, 3 * s, '#9955cc');
+  pixelRect(ctx, cx + 12 * s, p.y + 22 * s, 3 * s, 3 * s, '#9955cc');
+
+  // Engine exhausts (3 thrusters)
+  const flicker = 2 + Math.random() * 4;
+  pixelRect(ctx, cx - 4 * s, p.y + 22 * s, 2 * s, flicker * s, '#88ff00');
+  pixelRect(ctx, cx - 1 * s, p.y + 22 * s, 2 * s, (flicker + 2) * s, '#ffff44');
+  pixelRect(ctx, cx + 2 * s, p.y + 22 * s, 2 * s, flicker * s, '#88ff00');
 
   // Scanning beam
   if (p.scanning) {
