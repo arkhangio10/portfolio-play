@@ -1,0 +1,58 @@
+import { LevelConfig } from './types';
+
+export const LEVELS: LevelConfig[] = [
+  {
+    level: 1,
+    name: 'MEASUREMENT',
+    mechanic: 'Enemies invisible until scanned',
+    bossName: 'The Monolith Eye',
+    quantumLog: 'MEASUREMENT PRINCIPLE: In quantum mechanics, the act of observation fundamentally changes the system being observed. Before measurement, a particle exists in a superposition of all possible states. The moment you observe it, the wave function collapses to a single definite state. This is why your scanner was essential — without observation, the enemies remained in an undefined quantum state.',
+    enemyCount: 8,
+    bgColor: '#0a0f0a',
+  },
+  {
+    level: 2,
+    name: 'ENTANGLEMENT',
+    mechanic: 'Linked enemies share damage',
+    bossName: 'Twin Frigates',
+    quantumLog: 'QUANTUM ENTANGLEMENT: When two particles become entangled, measuring one instantly determines the state of the other, regardless of distance. Einstein called this "spooky action at a distance." The Twin Frigates exploited this — damaging one simultaneously affected the other. This non-local correlation is one of the most mysterious phenomena in quantum physics.',
+    enemyCount: 10,
+    bgColor: '#0a0a14',
+  },
+  {
+    level: 3,
+    name: 'TUNNELING',
+    mechanic: 'Boss phases through bullets',
+    bossName: 'Ghost Dreadnought',
+    quantumLog: 'QUANTUM TUNNELING: A particle can pass through a potential energy barrier that it classically should not be able to cross. This is because in quantum mechanics, particles are described by wave functions with non-zero probability on the other side of barriers. The Ghost Dreadnought used this to phase through your weapons — its wave function extended beyond the barrier of your bullets.',
+    enemyCount: 12,
+    bgColor: '#100a14',
+  },
+  {
+    level: 4,
+    name: 'INTERFERENCE',
+    mechanic: 'Safe zones where waves cancel',
+    bossName: 'Phase Shifter',
+    quantumLog: 'WAVE INTERFERENCE: Quantum particles exhibit wave-like behavior. When two waves meet, they can constructively interfere (amplify) or destructively interfere (cancel out). The safe zones you found were areas of destructive interference — where the Phase Shifter\'s attack waves perfectly canceled each other, creating nodes of zero amplitude.',
+    enemyCount: 10,
+    bgColor: '#0a1014',
+  },
+  {
+    level: 5,
+    name: 'SUPERPOSITION',
+    mechanic: 'Boss exists in 4 places simultaneously',
+    bossName: 'Hydra Carrier',
+    quantumLog: 'SUPERPOSITION: A quantum system can exist in multiple states simultaneously until measured. Schrödinger\'s cat is both alive and dead until the box is opened. The Hydra Carrier existed in 4 positions at once — only your measurement (shooting) collapsed it to a single location. Each "ghost" was equally real until observation forced a definite outcome.',
+    enemyCount: 14,
+    bgColor: '#14100a',
+  },
+  {
+    level: 6,
+    name: 'UNCERTAINTY',
+    mechanic: 'Faster you move, blurrier the boss',
+    bossName: 'Singularity Core',
+    quantumLog: 'HEISENBERG UNCERTAINTY PRINCIPLE: You cannot simultaneously know both the exact position and exact momentum of a particle. The more precisely you measure one, the less precisely you can know the other. The Singularity Core exploited this — as your ship\'s momentum increased, the boss\'s position became fundamentally unknowable. This is not a limitation of technology, but a fundamental property of nature.',
+    enemyCount: 16,
+    bgColor: '#140a0a',
+  },
+];
