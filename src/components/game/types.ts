@@ -27,6 +27,18 @@ export interface Bullet {
   height: number;
 }
 
+export type PowerUpType = 'health' | 'rapidfire' | 'shield' | 'spread' | 'nuke';
+
+export interface PowerUp {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  type: PowerUpType;
+  speed: number;
+  pulse: number; // animation timer
+}
+
 export interface Player {
   x: number;
   y: number;
@@ -39,6 +51,10 @@ export interface Player {
   lastShot: number;
   scanning: boolean;
   invincible: number;
+  // Power-up effects
+  shieldTimer: number;
+  rapidFireTimer: number;
+  spreadShotTimer: number;
 }
 
 export interface Enemy {
@@ -109,6 +125,7 @@ export interface GameData {
   boss: Boss | null;
   bullets: Bullet[];
   particles: Particle[];
+  powerUps: PowerUp[];
   screenShake: number;
   scanlineOffset: number;
 }
