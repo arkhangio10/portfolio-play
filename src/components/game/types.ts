@@ -97,7 +97,7 @@ export interface LevelConfig {
   bgColor: string;
 }
 
-export type GameState = 'menu' | 'playing' | 'boss' | 'gameover' | 'levelcomplete' | 'victory';
+export type GameState = 'menu' | 'playing' | 'boss' | 'paused' | 'gameover' | 'levelcomplete' | 'victory';
 
 export interface GameData {
   state: GameState;
